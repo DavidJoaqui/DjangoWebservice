@@ -1,0 +1,12 @@
+{% extends 'Home.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<form method="POST">
+	{% csrf_token %}
+	<h3>Desea eliminar el registro de {{ personadelete.nombre}} {{personadelete.apellido}} ?</h3>
+
+	<button class="btn btn-danger" type="submit">Eliminar</button>
+	<a class="btn btn-default" href="{% url 'listar' %}">Cancelar</a>
+</form>
+{% endblock %}

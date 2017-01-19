@@ -1,0 +1,186 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+
+{% block tittle %}
+  <title>inicio</title>
+{% endblock %}
+<script   src="https://code.jquery.com/jquery-3.1.1.js"   integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="   crossorigin="anonymous"></script>
+ 
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<!-- JavaScript -->
+<script src="//cdn.jsdelivr.net/alertifyjs/1.8.0/alertify.min.js"></script>
+
+<!-- CSS -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/alertifyjs/1.8.0/css/alertify.min.css"/>
+<!-- Default theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/alertifyjs/1.8.0/css/themes/default.min.css"/>
+<!-- Semantic UI theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/alertifyjs/1.8.0/css/themes/semantic.min.css"/>
+<!-- Bootstrap theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/alertifyjs/1.8.0/css/themes/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/alertify.js/0.5.0/alertify.core.css">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" charset="utf-8" http-equiv="content-type">
+<!--  
+  <link rel="stylesheet" href="/static/css/alertify.core.css">
+    <link rel="stylesheet" href="/static/css/alertify.default.css">
+    <script type="text/javascript" src="/static/js/alertify.js"></script>
+   -->
+
+
+
+{% block navbar %}
+<div class="container">
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+            <div class="navbar-header">
+                      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                      data-target="#bs-example-navbar-collapse-1">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+
+                      </button>
+                      <a class="navbar-brand" href="crear" style="font-family:Montserrat">Crear</a>
+            </div>
+                  
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                    <ul class="nav navbar-nav navbar-left">
+                        <li><a href="listapersonas">Listar, Editar y Eliminar Registros</a></li>
+                        <li><a href="documentacion">Documentacion<span class="sr-only">(current)</span></a></li>
+                        <li><a href="contacto">Contacto</a></li>
+                    </ul>
+            </div>
+      </div>      
+</nav>
+</div>     
+{% endblock %}
+</head>
+
+<!--cuerpo -->
+<br>
+<br>
+<center>
+  {%block content%}
+  <body style="background-color:gray">
+  <div class="container-fluid">
+    <h1 style="color:#0094ff;font-size:60px;margin-top:60px">
+      Bienvenido! pagina de Registro
+    </h1>
+    </div>
+<script> 
+
+    var mydate=new Date(); 
+    var year=mydate.getYear(); 
+    if (year < 1000) 
+    year+=1900; 
+    var day=mydate.getDay(); 
+    var month=mydate.getMonth()+1; 
+    if (month<10) 
+    month="0"+month; 
+    var daym=mydate.getDate(); 
+    if (daym<10) 
+    daym="0"+daym; 
+    
+    document.write("<small><font color='000000' face='Arial'><b>"+daym+"/"+month+"/"+year+"</b></font></small>") 
+
+</script> 
+
+<table id="reloj" border='0'>
+    <tr>
+          <td><div id='hora'></div></td>
+          <td><div>:</div></td>
+          <td><div id='minuto'></div></td>
+          <td><div>:</div></td>
+          <td><div id='segundo'></div></td>
+          <td><div>&nbsp;</div></td>
+          <td><div id='meridiano'></div></td>
+    </tr>
+</table>
+
+<script type="text/javascript">
+Reloj();
+function Reloj() {
+var tiempo = new Date();
+var hora = tiempo.getHours();
+var minuto = tiempo.getMinutes();
+var segundo = tiempo.getSeconds();
+var meridiano="am";
+document.getElementById('hora').innerHTML = hora;
+document.getElementById('minuto').innerHTML = minuto;
+document.getElementById('segundo').innerHTML = segundo;
+document.getElementById('meridiano').innerHTML = meridiano;
+setTimeout('Reloj()', 1000);
+str_hora = new String(hora);
+if (str_hora.length == 1) {
+document.getElementById('hora').innerHTML = '0' + hora;
+}
+str_minuto = new String(minuto);
+if (str_minuto.length == 1) {
+document.getElementById('minuto').innerHTML = '0' + minuto;
+}
+str_segundo = new String(segundo);
+if (str_segundo.length == 1) {
+document.getElementById('segundo').innerHTML = '0' + segundo;
+}
+if(hora>=12){
+  meridiano="pm"
+  hora=hora-12;
+  document.getElementById('hora').innerHTML = hora;
+	document.getElementById('meridiano').innerHTML =  meridiano;
+}else{
+document.getElementById('meridiano').innerHTML =  meridiano;
+}
+}
+</script>
+
+</center>
+<center>
+      <div style="width:50%"> 
+           <form method="POST" id="formulario">
+              {% csrf_token %}
+              {{ form.as_p }}
+              <button type="submit" id="btnguardar" class="btn btn-default btn-md" value="Guardar">
+                <span class="glyphicon glyphicon-floppy-save" style="color:#000000;font-size:20px;">Guardar</span>
+              </button> 
+          </form>
+      </div>
+</center>
+{% endblock %}
+
+</script>
+
+
+{% block footer %}
+<div role="separator" class="divider">
+<footer style="padding-top:30px;padding-bottom:30px;text-align:center;background-color:#000000;margin-top:30px;color:#ffffff">
+<center>
+<img style="width:100px;height:100px" src="{% static "img/fup2.jpg" %}" id="imagen">&nbsp;
+<img style="width:100px;height:100px" src="{%static "img/fupingenieria.jpg" %}">
+</center>
+
+<center>FUNDACION UNIVERSITARIA DE POPAYAN</center> <br>
+Sede Claustro San José calle 5 No. 8-58 | Sede Claustro San Camilo calle 8 No. 9-51 | Sede Arquitectura calle 3 No.   5-73 | Sede Derecho Carrera 3 No. 3-39 | Sede Comunicación Social calle 5 <br> 
+No. 8-53 | Sede Campestre Los Robles Popayán Km. 8 vía al sur<br>
+PBX +57 (2) 8320225 - 8320226 - 8320207 / Telefax 8244140
+
+</footer>
+</div>
+{% endblock %}
+</body>
+
+</html>

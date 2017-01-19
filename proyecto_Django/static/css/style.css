@@ -1,0 +1,11 @@
+@font-face{
+	font-family:'Antonio';
+	src:url('../fonts/Antonio-Regular.ttf');
+}
+@font-face{
+	font-family:'Aller';
+	src:url('../fonts/Aller_rg.ttf');
+}
+body{
+	margin: 1px;
+}

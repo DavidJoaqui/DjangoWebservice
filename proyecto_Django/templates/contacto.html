@@ -1,0 +1,27 @@
+{% extends 'Home.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+{% block tittle %}
+	<title>contacto</title>
+{% endblock %}	
+
+
+</head>
+
+
+	{% block content %}
+	<script type="text/javascript">
+			$(document).ready(function(){
+			
+			 alertify.confirm('Bienvenido','pagina de Contacto',function(){alertify.success('OK')
+		 	},function(){alertify.error('cancelar')});
+			});
+</script>
+	<body style="background-color:gray">
+	<h1>Contacto</h1>
+	<h1>Fundacion Universitaria de Popayan</h1>
+	{% endblock %}
+
+</body>
+</html>
