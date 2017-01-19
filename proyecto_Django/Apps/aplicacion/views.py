@@ -16,16 +16,20 @@ def formulario(request):
 		form=Formularioregistro()
 	return render(request,'Home.html',{'form':form})	
 
+
 def documentacion(request):
 	return render(request,'documentacion.html');
 
+
 def contacto(request):
 	return  render(request,'contacto.html')
+
 
 def listar(request):
 	persona = Persona.objects.all()
 	contexto={'personas':persona}
 	return render(request,'listaPersonas.html',contexto)
+
 
 def editarpersona(request, id_documento):
 	persona=Persona.objects.get(id_documento=id_documento)
@@ -37,6 +41,7 @@ def editarpersona(request, id_documento):
 			form.save()
 		return redirect('listar')	
 	return render(request,'Home.html',{'form': form})
+
 
 def eliminarRegistro(request, id_documento):
 	persona=Persona.objects.get(id_documento=id_documento)
