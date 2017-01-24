@@ -11,7 +11,7 @@ def formulario(request):
 		form=Formularioregistro(request.POST or None)
 		if form.is_valid():
 			form.save()
-		return redirect('Home')	
+		return redirect('crear')	
 	else:
 		form=Formularioregistro()
 	return render(request,'Home.html',{'form':form})	
